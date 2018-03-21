@@ -12,13 +12,17 @@ import java.util.Random;
  *
  * @author Manik Chandra Paul
  */
-public class ticket extends javax.swing.JFrame {double bp,ep,t;String no;
+public class ticket extends javax.swing.JFrame { 
+     double bp,ep,t;String no;
 
     /**
      * Creates new form ticket
      */
-    public ticket() {
+    public ticket() { 
+
         initComponents();
+        setTitle("TICKET WINDOW");
+        getContentPane().setBackground(new Color(204,234,243));
     }
 
     /**
@@ -76,6 +80,11 @@ public class ticket extends javax.swing.JFrame {double bp,ep,t;String no;
         jLabel20 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
@@ -529,13 +538,13 @@ public class ticket extends javax.swing.JFrame {double bp,ep,t;String no;
     }//GEN-LAST:event_jRadioButton4ActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        this.getContentPane().setBackground(Color.black);// TODO add your handling code here:
+        //this.getContentPane().setBackground(Color. yellow);// TODO add your handling code here:
     }//GEN-LAST:event_formWindowActivated
-
+    //exit button
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
         System.exit(0);
     }//GEN-LAST:event_jButton3MouseClicked
-
+     //total button
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Calendar timer = Calendar.getInstance(); 
         timer.getTime(); 
@@ -545,8 +554,8 @@ public class ticket extends javax.swing.JFrame {double bp,ep,t;String no;
         SimpleDateFormat Tdate = new SimpleDateFormat("dd-MM-yyyy");
         jLabel21.setText(Tdate.format(timer.getTime()));
          
-        jLabel19.setText("DEHRADUN *"); 
-        jLabel20.setText((String) jComboBox1.getSelectedItem()+ " *");
+        jLabel19.setText("DEHRADUN "); 
+        jLabel20.setText((String) jComboBox1.getSelectedItem()+ " ");
          
         int x;
         String a="";
@@ -558,7 +567,7 @@ public class ticket extends javax.swing.JFrame {double bp,ep,t;String no;
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel4MouseClicked
-
+    //total button
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         
          if(jRadioButton1.isSelected())
@@ -606,9 +615,9 @@ public class ticket extends javax.swing.JFrame {double bp,ep,t;String no;
            { ep=100;no="65MU007";}
          }
         if(jCheckBox1.isSelected())
-           t=1;
+           t=1;//adult
         else if(jCheckBox2.isSelected())
-           t=0.5;
+           t=0.5;//child
          double total=bp+(ep * t);
         String a=String.format(" Rs. ",total);
         jLabel16.setText(a);
@@ -619,6 +628,10 @@ public class ticket extends javax.swing.JFrame {double bp,ep,t;String no;
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton1MouseClicked
 
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        //this.getContentPane().setBackground(Color. yellow);// TODO add your handling code here:
+    }//GEN-LAST:event_formMouseClicked
+ 
     /**
      * @param args the command line arguments
      */
